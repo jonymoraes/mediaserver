@@ -99,7 +99,23 @@ pnpm run start:dev
 
 ---
 
-## Testing WebSockets in Postman
+## Testing in Postman
+
+## Import Postman Collection
+
+To simplify testing, a pre-made Postman collection is included in the repository:
+
+- File: [`mediaserver.postman_collection.json`](https://raw.githubusercontent.com/jonymoraes/mediaserver/refs/heads/master/data/mediaserver.postman_collection.json)
+- Download the file or import it directly in Postman:
+
+1. Click **Import** in Postman.
+2. Select **Link**.
+3. Paste the URL: [https://raw.githubusercontent.com/jonymoraes/mediaserver/refs/heads/master/data/mediaserver.postman_collection.json](https://raw.githubusercontent.com/jonymoraes/mediaserver/refs/heads/master/data/mediaserver.postman_collection.json)
+4. The collection `mediaserver[websockets]` will appear with all WebSocket requests pre-configured.
+
+Once imported, you can skip manual setup and directly use the requests for testing.
+
+## Creating a WebSocket Request Collection
 
 Even though Postman cannot export WebSocket folders, you can manually test the MediaServer events by creating a WebSocket request collection.
 
