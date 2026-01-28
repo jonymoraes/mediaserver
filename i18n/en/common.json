@@ -1,0 +1,6 @@
+{
+  "ApiKeyNotProvided": "Apikey not provided.",
+  "ApiKeyInvalid": "Apikey is invalid.",
+  "ApiKeyInactive": "Apikey is not active.",
+  "failed_deletion": "Filed to delete"
+}

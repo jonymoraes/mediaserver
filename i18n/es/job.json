@@ -1,0 +1,13 @@
+{
+  "notFound": "Tarea no encontrada.",
+  "canceled": "Tarea cancelada por el usuario.",
+  "alreadyCompleted": "La tarea ya se ha completado",
+  "alreadyCanceled": "La tarea ya se ha cancelado",
+  "failed": "Tarea fallida.",
+  "started": "Iniciado",
+  "validated": "Validado",
+  "preparing": "Preparando",
+  "executing": "Ejecutando",
+  "finalizing": "Finalizando",
+  "completedSuccessfully": "Completada correctamente"
+}

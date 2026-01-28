@@ -1,0 +1,543 @@
+{
+  "info": {
+    "_postman_id": "f89ffa74-02bb-4748-9abe-1673b75db7e3",
+    "name": "mediaserver",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46604541"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "get-account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Parse the JSON response",
+                  "const res = pm.response.json();",
+                  "",
+                  "// Extract the value of \"folder\"",
+                  "const folder = res.account?.folder;",
+                  "",
+                  "// Verify if exists before setting",
+                  "if (folder) {",
+                  "    pm.environment.set('IMAGE_FOLDER', folder);",
+                  "    console.log('IMAGE_FOLDER set to:', folder);",
+                  "} else {",
+                  "    console.warn('No folder found in response');",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/account",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-accounts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "bb324db151b6cb7261c1dc9de577e4530515764ec90cf9f74661400980aa25e2",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/account/list",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "account",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create-account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.environment.set('API_KEY', res.apikey);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Some WebSite\",\n    \"domain\": \"www.domain.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/account",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-account",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Cranberry Mayorista\",\n    \"domain\": \"www.cranberrymayorista.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/account",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/account",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "quota",
+      "item": [
+        {
+          "name": "get-quota",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/quota",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "quota"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "video",
+      "item": [
+        {
+          "name": "get-video",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{static}}/{{IMAGE_FOLDER}}/video.webm",
+              "host": [
+                "{{static}}"
+              ],
+              "path": [
+                "{{IMAGE_FOLDER}}",
+                "video.webm"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload-video",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Parse JSON response",
+                  "const res = pm.response.json();",
+                  "",
+                  "// Extract jobId",
+                  "const jobId = res.jobId;",
+                  "",
+                  "// Set jobId if exists",
+                  "if (jobId) {",
+                  "    pm.environment.set('jobId', jobId);",
+                  "    console.log('jobId set to:', jobId);",
+                  "} else {",
+                  "    console.warn('No jobId found in response');",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "ba758711-8ace-423a-9044-a459e5b61b9c",
+                  "src": "postman-cloud:///1f0f9067-1af0-41a0-8a32-c2a77e421de0"
+                },
+                {
+                  "key": "Format",
+                  "value": "WEBM",
+                  "type": "text",
+                  "uuid": "f3e6a777-4d2c-40fb-99b1-7bcd1394650e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/video",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "video"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel-video-process",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/video/{{jobId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "video",
+                "{{jobId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload-video-status",
+          "request": {
+            "method": "PATCH",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "delete-video",
+          "request": {
+            "method": "DELETE",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "item": [
+        {
+          "name": "get-image",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{static}}/{{IMAGE_FOLDER}}/pantalon-rojo-1.webp",
+              "host": [
+                "{{static}}"
+              ],
+              "path": [
+                "{{IMAGE_FOLDER}}",
+                "pantalon-rojo-1.webp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload-image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Parse JSON response",
+                  "const res = pm.response.json();",
+                  "",
+                  "// Extract jobId",
+                  "const jobId = res.jobId;",
+                  "",
+                  "// Set jobId if exists",
+                  "if (jobId) {",
+                  "    pm.environment.set('jobId', jobId);",
+                  "    console.log('jobId set to:', jobId);",
+                  "} else {",
+                  "    console.warn('No jobId found in response');",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "postman-cloud:///1f0c5e8c-977e-4dd0-a1af-b6e13b3558b8"
+                },
+                {
+                  "key": "context",
+                  "value": "Generic",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/image",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "image"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel-image-process",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/image/{{jobId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "image",
+                "{{jobId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/image/pantalon-rojo-1.webp",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "image",
+                "pantalon-rojo-1.webp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-image",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-media-key",
+                "value": "{{API_KEY}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/image/pantalon-rojo-1.webp",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "image",
+                "pantalon-rojo-1.webp"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

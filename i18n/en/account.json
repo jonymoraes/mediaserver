@@ -1,0 +1,18 @@
+{
+  "alreadyExists": "Account already exists.",
+  "notFound": "Account not found.",
+  "storageNotFound": "Storage not found.",
+  "createdSucessfully": "Account created successfully.",
+  "deletedSuccesfully": "Account deleted successfully.",
+  "updatedSuccesfully": "Account updated successfully.",
+  "dto": {
+    "name": {
+      "required": "name: Name is required",
+      "maxLength": "name: Name must not exceed 100 characters"
+    },
+    "domain": {
+      "required": "domain: Domain is required",
+      "maxLength": "domain: Domain must not exceed 100 characters"
+    }
+  }
+}

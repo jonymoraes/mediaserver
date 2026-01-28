@@ -1,0 +1,9 @@
+{
+  "notFound": "Imagen no encontrada.",
+  "invalid": "Imagen no válida.",
+  "updatedSuccessfully": "Imagen actualizada correctamente.",
+  "activatedSuccessfully": "Imagen activada correctamente.",
+  "canceledSuccessfully": "Imagen cancelada correctamente.",
+  "deletedSuccessfully": "Imagen eliminada correctamente.",
+  "onQueue": "Imagen en cola, procesando"
+}

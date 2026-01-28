@@ -1,0 +1,9 @@
+{
+  "notFound": "Video no encontrado.",
+  "invalid": "Video no válido",
+  "updatedSuccessfully": "Video actualizado correctamente.",
+  "activatedSuccessfully": "Video activado correctamente.",
+  "canceledSuccessfully": "Video cancelado correctamente.",
+  "deletedSuccessfully": "Video eliminado correctamente.",
+  "onQueue": "Video en cola, procesando"
+}

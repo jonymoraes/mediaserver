@@ -1,0 +1,13 @@
+{
+  "notFound": "Job not found.",
+  "canceled": "Job canceled by user.",
+  "failed": "Job failed.",
+  "alreadyCompleted": "Job already completed",
+  "alreadyCanceled": "Job already canceled",
+  "started": "started",
+  "validated": "validated",
+  "preparing": "preparing",
+  "executing": "executing",
+  "finalizing": "finalizing",
+  "completedSuccessfully": "completed successfully"
+}

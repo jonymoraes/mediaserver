@@ -1,0 +1,18 @@
+{
+  "alreadyExists": "Esa cuenta ya está registrada.",
+  "notFound": "Cuenta no encontrada.",
+  "storageNotFound": "Almacenamiento no encontrado.",
+  "createdSucessfully": "Cuenta creada correctamente.",
+  "deletedSuccesfully": "Cuenta eliminada correctamente.",
+  "updatedSuccesfully": "Cuenta actualizada correctamente.",
+  "dto": {
+    "name": {
+      "required": "name: Nombre es requerido.",
+      "maxLength": "name: Nombre debe tener menos de 100 caracteres"
+    },
+    "domain": {
+      "required": "domain: Dominio es requerido.",
+      "maxLength": "domain: Dominio debe tener menos de 100 caracteres."
+    }
+  }
+}
