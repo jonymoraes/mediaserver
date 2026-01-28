@@ -3,6 +3,10 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
 
 import * as path from 'path';
 
+//  Guards
+import { APP_GUARD } from '@nestjs/core';
+import { RateLimitGuard } from '../../shared/guards/rate-limit.guard';
+
 //  Exceptions
 import { APP_FILTER } from '@nestjs/core';
 import { ConfigureException } from 'src/platform/shared/exceptions/configure.exception';
@@ -87,6 +91,10 @@ import { VideoModule } from './video.module';
     SeedersModule,
   ],
   providers: [
+    {
+      provide: APP_GUARD,
+      useClass: RateLimitGuard,
+    },
     {
       provide: APP_FILTER,
       useClass: ConfigureException,

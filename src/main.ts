@@ -8,7 +8,7 @@ import { join } from 'path';
 import { ValidationPipe, Logger } from '@nestjs/common';
 
 //  Pino
-import { PinoConfig } from './platform/shared/logger/pino.config';
+import { PinoConfig } from './platform/config/settings/pino.config';
 
 //  Fastify
 import fastifyCors from '@fastify/cors';

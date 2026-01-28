@@ -2,6 +2,11 @@
  * @description Centralized Redis keys
  */
 export class RedisKeys {
+  // ------------------ Rate Limit ------------------
+  static rateLimit(identity: string, path: string): string {
+    return `rate:${identity}:${path}`;
+  }
+
   // ------------------ Account ------------------
   static accountById(id: string): string {
     return `account:id:${id}`;

@@ -1,7 +1,7 @@
 import { WebSocketGateway } from '@nestjs/websockets';
 import { Injectable } from '@nestjs/common';
 import { WebsocketGuard } from '@/src/platform/shared/guards/websocket.guard';
-import { BaseGateway } from '@/src/platform/shared/websockets/base.gateway';
+import { BaseGateway } from '@/src/domain/ports/inbound/websockets/base.gateway';
 
 //  BullMQ
 import { QueueEvents } from 'bullmq';

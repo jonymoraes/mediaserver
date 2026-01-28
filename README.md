@@ -37,11 +37,16 @@ All operations provide **real-time updates via WebSockets**, making it ideal for
   - Uses **BullMQ** + **Redis** for async media tasks.
   - Fully scalable for high load and concurrent jobs.
 
+- **Rate Limit**
+  - The API enforces request limits per account to prevent abuse.
+  - Default limit: 100 requests per minute (configurable via `.env` or config module).
+
 - **Architecture**
   - Hexagonal architecture for maintainability.
   - **PostgreSQL** + **TypeORM** for persistent storage.
   - **Pino** logging for high-performance logging.
   - **Fastify** for high-speed HTTP handling.
+  - **Redis** for low-latency caching and state management.
   - Compiled with **SWC** for fast builds.
 
 ## Requirements
@@ -71,7 +76,7 @@ Before running the MediaServer API, make sure you have the following services in
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/mediaserver-api.git
+git clone https://github.com/jonymoraes/mediaserver.git
 cd mediaserver
 pnpm install
 ```
