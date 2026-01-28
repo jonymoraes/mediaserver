@@ -45,6 +45,6 @@ export class UpdateTransferUseCase extends UpdateTransferPort {
     await this.quotaPort.save(quota);
 
     //  Emit quota updates
-    this.quotaGateway.emitQuota(QuotaToDto.fromEntity(quota), account.id);
+    this.quotaGateway.emitQuota(QuotaToDto.fromEntity(quota));
   }
 }
