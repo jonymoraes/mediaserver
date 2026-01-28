@@ -54,10 +54,7 @@ export class CleanupImageCron {
             ).toString();
 
             //  Emit changes
-            this.quotaGateway.emitQuota(
-              QuotaToDto.fromEntity(quota),
-              account.id,
-            );
+            this.quotaGateway.emitQuota(QuotaToDto.fromEntity(quota));
 
             totalDeleted++;
           } catch (err) {
